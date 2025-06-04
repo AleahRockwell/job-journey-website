@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Journey - Corporate Sponsorship | CanAssist UVic</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            overflow-x: hidden;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .header.scrolled {
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-menu a:hover {
+            color: #667eea;
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #667eea;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-nav {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white !important;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .cta-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            color: white !important;
+        }
+        
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #2c3e50;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 120px 2rem 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 30s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translateX(-100px) translateY(-100px) rotate(0deg); }
+            100% { transform: translateX(0px) translateY(0px) rotate(360deg); }
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            animation: fadeInUp 1s ease;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+        
+        .hero .description {
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.6s both;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .btn-primary {
+            background: white;
+            color: #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            color: #667eea;
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+            color: white;
+        }
+        
+        /* Section Styling */
+        .section {
+            padding: 80px 2rem;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c3e50;
+            position: relative;
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        /* About Section */
+        .about {
+            background: #f8f9ff;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            color: #666;
+            line-height: 1.7;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            font-size: 1rem;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        /* Features Section */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border: 1px solid rgba(102, 126, 234, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+        }
+        
+        .feature-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* Sponsorship Section */
+        .sponsorship {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+        }
+        
+        .sponsorship-tiers {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .tier-card {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .tier-card:hover {
+            border-color: #667eea;
+            transform: translateY(-10px);
+        }
+        
+        .tier-card.featured {
+            border-color: #667eea;
+            transform: scale(1.05);
+            position: relative;
+        }
+        
+        .tier-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .tier-price {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tier-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            color: #2c3e50;
+        }
+        
+        .tier-benefits {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 2rem;
+        }
+        
+        .tier-benefits li {
+            padding: 0.75rem 0;
+            position: relative;
+            padding-left: 30px;
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        .tier-benefits li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .tier-cta {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .tier-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+            color: white;
+        }
+        
+        /* Impact Section */
+        .impact {
+            background: #2c3e50;
+            color: white;
+        }
+        
+        .impact h2 {
+            color: white;
+        }
+        
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .impact-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            text-align: center;
+        }
+        
+        .impact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .impact-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .impact-card p {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+        
+        /* Contact Section */
+        .contact {
+            background: #f8f9ff;
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8f9ff;
+            border-radius: 12px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-right: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        .form-submit {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .form-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+        }
+        
+        /* Footer */
+        .footer {
+            background: #2c3e50;
+            color: white;
+            padding: 3rem 2rem 2rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            line-height: 1.6;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 2rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: start;
+                padding-top: 2rem;
+                transition: left 0.3s ease;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .features-grid,
+            .sponsorship-tiers,
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section {
+                padding: 60px 1rem;
+            }
+            
+            .nav-container {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">🌟</div>
+                Job Journey
+            </a>
+            <nav>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Program</a></li>
+                    <li><a href="#sponsorship">Sponsorship</a></li>
+                    <li><a href="#impact">Impact</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-nav">Get Started</a>
+            <button class="mobile-menu-toggle" id="mobile-toggle">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>Build Inclusive Futures</h1>
+            <p class="subtitle">Support youth with disabilities on their journey to meaningful employment</p>
+            <p class="description">
+                Partner with Job Journey to create lasting impact while building your workforce with motivated, 
+                well-trained talent ready to contribute to your organization's success.
+            </p>
+            <div class="hero-cta">
+                <a href="#sponsorship" class="btn-primary">Explore Sponsorship</a>
+                <a href="#contact" class="btn-secondary">Schedule Meeting</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2>What is Job Journey?</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Empowering Youth, Building Futures</h3>
+                    <p>
+                        Job Journey is a comprehensive 12-week employment readiness program developed by 
+                        CanAssist at the University of Victoria. We empower youth ages 16+ with disabilities 
+                        to build the skills, confidence, and experience they need to enter the workforce.
+                    </p>
+                    <p>
+                        Our unique approach combines individualized career planning, hands-on skill building, 
+                        real-world experience, and ongoing mentorship to ensure lasting success for both 
+                        participants and employer partners.
+                    </p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">12</span>
+                        <div class="stat-label">Week Program</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">16+</span>
+                        <div class="stat-label">Age Range</div>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">16</span>
+                        <div class="stat-label">Weeks Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section features" id="features">
+        <div class="container">
+            <h2>How We Make It Work</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Individualized Career Planning</h3>
+                    <p>Each participant receives personalized career guidance aligned with their unique strengths, interests, and career goals.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛠️</div>
+                    <h3>Skill-Building Workshops</h3>
+                    <p>Interactive sessions covering workplace essentials, communication skills, and job-specific competencies tailored to your industry.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">👥</div>
+                    <h3>Real-World Experience</h3>
+                    <p>Job shadowing opportunities and hands-on experience with supportive employer partners in authentic work environments.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Ongoing Mentorship</h3>
+                    <p>Continuous 1:1 support and wraparound services throughout the program and during workplace transition.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Workplace Integration</h3>
+                    <p>Specialized coaching to help participants adapt to workplace culture and build professional relationships with colleagues.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3>Progress Tracking</h3>
+                    <p>Regular assessments and milestone celebrations to ensure participants are building confidence and achieving their goals.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsorship Section -->
+    <section class="section sponsorship" id="sponsorship">
+        <div class="container">
+            <h2>Sponsorship Investment Options</h2>
+            <div class="sponsorship-tiers">
+                <div class="tier-card">
+                    <div class="tier-price">$10,000</div>
+                    <div class="tier-title">Core Program Sponsor</div>
+                    <ul class="tier-benefits">
+                        <li>Fund an entire cohort of participants</li>
+                        <li>Premium logo placement and ongoing promotion</li>
+                        <li>Comprehensive program reports and outcomes</li>
+                        <li>Priority access to graduates for hiring</li>
+                        <li>Executive briefing and site visit opportunities</li>
+                        <li>Custom success stories and case studies</li>
+                    </ul>
+                    <a href="#contact" class="tier-cta">Become a Core Sponsor</a>
+                </div>
+                <div class="tier-card featured">
+                    <div class="tier-price">$2,500</div>
+                    <div class="tier-title">Participant Sponsor</div>
+                    <ul class="tier-benefits">
+                        <li>Fund one youth through the 12-week program</li>
+                        <li>Personalized case study and success story</li>
+                        <li>Digital certificate of impact</li>
+                        <li>Internal communications assets</li>
+                        <li>Social media content and sharing options</li>
+                        <li>Direct participant mentorship opportunity</li>
+                    </ul>
+                    <a href="#contact" class="tier-cta">Sponsor a Participant</a>
+                </div>
+                <div class="tier-card">
+                    <div class="tier-price">Custom</div>
+                    <div class="tier-title">Tailored Partnership</div>
+                    <ul class="tier-benefits">
+                        <li>Co-created package aligned with your goals</li>
+                        <li>CSR and DEI objective integration</li>
+                        <li>Flexible investment levels</li>
+                        <li>Specific hiring pipeline development</li>
+                        <li>Long-term partnership opportunities</li>
+                        <li>Multi-year commitment options</li>
+                    </ul>
+                    <a href="#contact" class="tier-cta">Let's Talk</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="section impact" id="impact">
+        <div class="container">
+            <h2>Your Sponsorship Impact</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">🌟</div>
+                    <h3>Create Real Impact</h3>
+                    <p>Support inclusive hiring while empowering young people to achieve independence and career success in your community.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">🏆</div>
+                    <h3>Enhance Your Brand</h3>
+                    <p>Be recognized as an accessibility and inclusion leader with branded assets, social media features, and website recognition.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">💼</div>
+                    <h3>Build Your Workforce</h3>
+                    <p>Gain early access to motivated, well-trained candidates with direct coaching support during onboarding.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">🤝</div>
+                    <h3>Ongoing Support</h3>
+                    <p>Our team provides weekly meetings with participants and supervisors for up to 16 weeks to ensure successful integration.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2>Ready to Make a Difference?</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3 style="margin-bottom: 2rem; color: #667eea; font-size: 1.5rem;">Get In Touch</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <strong>Email</strong><br>
+                            <a href="mailto:jobjourney@canassist.ca">jobjourney@canassist.ca</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div>
+                            <strong>Phone</strong><br>
+                            <a href="tel:250-555-1234">(250) 555-1234</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <div>
+                            <strong>Website</strong><br>
+                            <a href="https://www.canassist.ca/jobjourney" target="_blank">www.canassist.ca/jobjourney</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <strong>Address</strong><br>
+                            University of Victoria<br>
+                            Victoria, BC
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 1.5rem; color: #667eea; font-size: 1.5rem;">Start Your Partnership</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="company">Company *</label>
+                            <input type="text" id="company" name="company" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="interest">Sponsorship Interest *</label>
+                            <select id="interest" name="interest" required>
+                                <option value="">Select an option</option>
+                                <option value="core">Core Program Sponsor ($10,000)</option>
+                                <option value="participant">Participant Sponsor ($2,500)</option>
+                                <option value="custom">Custom Partnership</option>
+                                <option value="info">More Information</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your goals and how we can help..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Job Journey</h3>
+                <p>Empowering youth with disabilities to build meaningful careers while helping employers create inclusive workplaces.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <p><a href="#about">About Program</a></p>
+                <p><a href="#features">How It Works</a></p>
+                <p><a href="#sponsorship">Sponsorship</a></p>
+                <p><a href="#contact">Contact Us</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>CanAssist</h3>
+                <p><a href="https://www.canassist.ca" target="_blank">Main Website</a></p>
+                <p><a href="#" target="_blank">Other Programs</a></p>
+                <p><a href="#" target="_blank">Research</a></p>
+                <p><a href="#" target="_blank">News & Updates</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <p><a href="mailto:jobjourney@canassist.ca">jobjourney@canassist.ca</a></p>
+                <p><a href="tel:250-555-1234">(250) 555-1234</a></p>
+                <p>University of Victoria<br>Victoria, BC, Canada</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 CanAssist, University of Victoria. All rights reserved. | Job Journey is a not-for-profit program supporting youth employment and inclusive hiring.</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <a href="#hero" class="scroll-top" id="scroll-top">↑</a>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Header Scroll Effect
+        const header = document.getElementById('header');
+        const scrollTop = document.getElementById('scroll-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+                scrollTop.classList.add('visible');
+            } else {
+                header.classList.remove('scrolled');
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        // Smooth Scrolling for Navigation Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+                // Close mobile menu if open
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Form Submission Handler
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('.form-submit');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call
+            setTimeout(() => {
+                alert('Thank you for your interest! We will contact you within 24 hours to discuss partnership opportunities.');
+                this.reset();
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        });
+
+        // Intersection Observer for Animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .tier-card, .impact-card, .stat-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Loading animation for page
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '1';
+        });
+
+        // Set initial body opacity for loading effect
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.5s ease';
+    </script>
+                
