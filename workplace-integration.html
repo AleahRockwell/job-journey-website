@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workplace Integration - Job Journey | CanAssist UVic</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 61, 120, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #003d78;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .back-button {
+            background: #003d78;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #daa352;
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #003d78 0%, #daa352 100%);
+            color: white;
+            padding: 120px 2rem 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .hero-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 80px 2rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #003d78;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border-left: 4px solid #003d78;
+        }
+        
+        .content-card h3 {
+            font-size: 1.5rem;
+            color: #003d78;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .content-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .process-steps {
+            background: #f8f9ff;
+        }
+        
+        .integration-areas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .area-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid #daa352;
+            text-align: center;
+        }
+        
+        .area-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #003d78, #daa352);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .area-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #003d78;
+            font-weight: 600;
+        }
+        
+        .area-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .benefits-list li {
+            padding: 0.75rem 0;
+            position: relative;
+            padding-left: 30px;
+            color: #666;
+        }
+        
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #003d78;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 61, 120, 0.05), rgba(218, 163, 82, 0.05));
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #daa352;
+            margin: 2rem 0;
+        }
+        
+        .highlight-box h3 {
+            color: #003d78;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .integration-timeline {
+            margin: 3rem 0;
+        }
+        
+        .timeline-week {
+            display: flex;
+            margin-bottom: 2rem;
+            align-items: flex-start;
+        }
+        
+        .week-marker {
+            width: 80px;
+            height: 40px;
+            background: linear-gradient(135deg, #003d78, #daa352);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            margin-right: 2rem;
+            flex-shrink: 0;
+            font-size: 0.9rem;
+        }
+        
+        .week-content h4 {
+            color: #003d78;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .week-content p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            background: #003d78;
+            color: white;
+            padding: 60px 2rem;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #daa352;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: white;
+            color: #003d78;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+            color: white;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .section {
+                padding: 60px 1rem;
+            }
+            
+            .nav-container {
+                padding: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .timeline-week {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .week-marker {
+                margin-bottom: 1rem;
+                margin-right: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="canassist-logo.png" alt="CanAssist Logo" />
+                </div>
+                <span>Job Journey</span>
+            </a>
+            <a href="index.html" class="back-button">← Back to Main</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-icon">🎓</div>
+        <h1>Workplace Integration</h1>
+        <p class="subtitle">Specialized coaching to help participants adapt to workplace culture and build professional relationships with colleagues for long-term success.</p>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Bridging the Gap to Workplace Success</h2>
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>Beyond Skills Training</h3>
+                    <p>Workplace integration focuses on the often unspoken aspects of employment success – understanding company culture, building relationships with colleagues, and navigating workplace dynamics effectively.</p>
+                    <p>We help participants decode workplace norms, develop professional relationships, and feel confident as valued team members rather than just employees doing tasks.</p>
+                </div>
+                <div class="content-card">
+                    <h3>Cultural Competency Development</h3>
+                    <p>Every workplace has its own unique culture, communication styles, and social dynamics. Our integration coaching helps participants understand and adapt to these nuances while maintaining their authentic selves.</p>
+                    <p>This personalized approach ensures participants can contribute meaningfully to their teams and build the relationships that lead to long-term career success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Areas Section -->
+    <section class="section process-steps">
+        <div class="container">
+            <h2>Key Areas of Integration Support</h2>
+            <div class="integration-areas">
+                <div class="area-card">
+                    <div class="area-icon">🏢</div>
+                    <h4>Company Culture</h4>
+                    <p>Understanding organizational values, communication styles, dress codes, and informal workplace traditions and practices.</p>
+                </div>
+                <div class="area-card">
+                    <div class="area-icon">👥</div>
+                    <h4>Team Dynamics</h4>
+                    <p>Learning how to work effectively within teams, understanding roles and hierarchy, and contributing to group projects and decisions.</p>
+                </div>
+                <div class="area-card">
+                    <div class="area-icon">💬</div>
+                    <h4>Professional Communication</h4>
+                    <p>Mastering workplace communication norms, email etiquette, meeting participation, and appropriate levels of formality.</p>
+                </div>
+                <div class="area-card">
+                    <div class="area-icon">🤝</div>
+                    <h4>Relationship Building</h4>
+                    <p>Developing professional relationships, networking within the organization, and building rapport with supervisors and colleagues.</p>
+                </div>
+                <div class="area-card">
+                    <div class="area-icon">⚖️</div>
+                    <h4>Workplace Boundaries</h4>
+                    <p>Understanding professional boundaries, appropriate workplace behavior, and how to handle conflicts or challenging situations.</p>
+                </div>
+                <div class="area-card">
+                    <div class="area-icon">📈</div>
+                    <h4>Growth Opportunities</h4>
+                    <p>Identifying advancement pathways, seeking feedback effectively, and positioning oneself for career development within the organization.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Integration Process Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Our Integration Timeline</h2>
+            <div class="integration-timeline">
+                <div class="timeline-week">
+                    <div class="week-marker">Week 1-2</div>
+                    <div class="week-content">
+                        <h4>Initial Workplace Assessment</h4>
+                        <p>Observing workplace culture, identifying key relationships, and understanding organizational structure and communication patterns.</p>
+                    </div>
+                </div>
+                <div class="timeline-week">
+                    <div class="week-marker">Week 3-4</div>
+                    <div class="week-content">
+                        <h4>Relationship Building Focus</h4>
+                        <p>Facilitating introductions, coaching on professional relationship development, and helping establish connections with key team members.</p>
+                    </div>
+                </div>
+                <div class="timeline-week">
+                    <div class="week-marker">Week 5-8</div>
+                    <div class="week-content">
+                        <h4>Cultural Adaptation Support</h4>
+                        <p>Ongoing coaching on workplace norms, communication styles, and helping participants find their place within the team dynamic.</p>
+                    </div>
+                </div>
+                <div class="timeline-week">
+                    <div class="week-marker">Week 9-16</div>
+                    <div class="week-content">
+                        <h4>Independence & Growth Planning</h4>
+                        <p>Gradual reduction of support as participants gain confidence, with focus on long-term career development and advancement opportunities.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>For Participants</h3>
+                    <ul class="benefits-list">
+                        <li>Faster adaptation to workplace culture</li>
+                        <li>Stronger professional relationships</li>
+                        <li>Increased confidence in social situations</li>
+                        <li>Better understanding of advancement opportunities</li>
+                        <li>Reduced anxiety about workplace interactions</li>
+                        <li>Enhanced job satisfaction and belonging</li>
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <h3>For Employers</h3>
+                    <ul class="benefits-list">
+                        <li>Smoother team integration process</li>
+                        <li>Improved employee engagement and retention</li>
+                        <li>Enhanced team dynamics and collaboration</li>
+                        <li>Reduced supervisor time spent on integration issues</li>
+                        <li>Stronger inclusive culture development</li>
+                        <li>Better long-term employee performance</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Integration Success Story</h3>
+                <p>"When Jessica started, she was technically skilled but struggled with the informal communication style of our startup environment. Her Job Journey integration coach worked with both Jessica and our team to find the right balance. Now Jessica is not only a valuable team member but also mentors new hires on adapting to our company culture. The integration support made all the difference." - <em>Team Lead, Tech Startup Partner</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Support Workplace Integration?</h2>
+            <p>Partner with Job Journey to ensure participants not only succeed in their roles but thrive as valued members of your team and organizational culture.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn-primary">Become a Partner</a>
+                <a href="index.html#features" class="btn-secondary">View All Programs</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

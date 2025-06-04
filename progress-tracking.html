@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progress Tracking - Job Journey | CanAssist UVic</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 61, 120, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #003d78;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .back-button {
+            background: #003d78;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #daa352;
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #003d78 0%, #daa352 100%);
+            color: white;
+            padding: 120px 2rem 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .hero-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 80px 2rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #003d78;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border-left: 4px solid #003d78;
+        }
+        
+        .content-card h3 {
+            font-size: 1.5rem;
+            color: #003d78;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .content-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .process-steps {
+            background: #f8f9ff;
+        }
+        
+        .tracking-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .method-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid #daa352;
+            text-align: center;
+        }
+        
+        .method-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #003d78, #daa352);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 auto 1rem;
+        }
+        
+        .method-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #003d78;
+            font-weight: 600;
+        }
+        
+        .method-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .benefits-list li {
+            padding: 0.75rem 0;
+            position: relative;
+            padding-left: 30px;
+            color: #666;
+        }
+        
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #003d78;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 61, 120, 0.05), rgba(218, 163, 82, 0.05));
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #daa352;
+            margin: 2rem 0;
+        }
+        
+        .highlight-box h3 {
+            color: #003d78;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .milestones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 3rem 0;
+        }
+        
+        .milestone-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border: 2px solid #f0f0f0;
+            transition: all 0.3s ease;
+        }
+        
+        .milestone-card:hover {
+            border-color: #daa352;
+            transform: translateY(-5px);
+        }
+        
+        .milestone-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #003d78;
+            margin-bottom: 0.5rem;
+        }
+        
+        .milestone-label {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .progress-features {
+            margin: 3rem 0;
+        }
+        
+        .feature-row {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        
+        .feature-icon-small {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #003d78, #daa352);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .feature-content h4 {
+            color: #003d78;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .feature-content p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .cta-section {
+            background: #003d78;
+            color: white;
+            padding: 60px 2rem;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #daa352;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: white;
+            color: #003d78;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+            color: white;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .section {
+                padding: 60px 1rem;
+            }
+            
+            .nav-container {
+                padding: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .feature-row {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .feature-icon-small {
+                margin-right: 0;
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="canassist-logo.png" alt="CanAssist Logo" />
+                </div>
+                <span>Job Journey</span>
+            </a>
+            <a href="index.html" class="back-button">← Back to Main</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-icon">📈</div>
+        <h1>Progress Tracking</h1>
+        <p class="subtitle">Regular assessments and milestone celebrations to ensure participants are building confidence and achieving their career goals.</p>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Measuring Success Every Step of the Way</h2>
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>Data-Driven Development</h3>
+                    <p>Our progress tracking system uses multiple assessment methods to provide a comprehensive view of each participant's growth. We track both hard skills development and soft skills progression, ensuring no aspect of career readiness is overlooked.</p>
+                    <p>Regular measurement helps us identify areas where participants excel and areas that need additional support, allowing for personalized interventions and celebrations of achievements.</p>
+                </div>
+                <div class="content-card">
+                    <h3>Motivation Through Recognition</h3>
+                    <p>Progress tracking isn't just about measurement – it's about motivation. By celebrating milestones and recognizing achievements, we help build the confidence participants need for long-term career success.</p>
+                    <p>Our approach helps participants see their own growth clearly, building self-awareness and confidence that translates directly into workplace performance.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracking Methods Section -->
+    <section class="section process-steps">
+        <div class="container">
+            <h2>How We Track Progress</h2>
+            <div class="tracking-methods">
+                <div class="method-card">
+                    <div class="method-icon">📊</div>
+                    <h4>Skills Assessments</h4>
+                    <p>Regular evaluation of technical and workplace skills through practical demonstrations, tests, and real-world application scenarios.</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">🎯</div>
+                    <h4>Goal Achievement</h4>
+                    <p>Tracking progress toward individual career goals with regular check-ins and milestone celebrations to maintain motivation.</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">💬</div>
+                    <h4>360-Degree Feedback</h4>
+                    <p>Input from mentors, workshop instructors, workplace supervisors, and self-assessments for comprehensive progress evaluation.</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">📝</div>
+                    <h4>Portfolio Development</h4>
+                    <p>Building evidence portfolios that document skill development, achievements, and work samples for future employment opportunities.</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">📱</div>
+                    <h4>Digital Tracking Tools</h4>
+                    <p>User-friendly digital platforms that allow participants to track their own progress and celebrate achievements in real-time.</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">🏆</div>
+                    <h4>Competency Badges</h4>
+                    <p>Recognition system that awards digital badges for mastered skills and completed milestones, building motivation and pride.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Progress Features Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Key Progress Tracking Features</h2>
+            <div class="progress-features">
+                <div class="feature-row">
+                    <div class="feature-icon-small">📅</div>
+                    <div class="feature-content">
+                        <h4>Weekly Check-ins</h4>
+                        <p>Regular one-on-one meetings to review progress, address challenges, and set goals for the upcoming week.</p>
+                    </div>
+                </div>
+                <div class="feature-row">
+                    <div class="feature-icon-small">📈</div>
+                    <div class="feature-content">
+                        <h4>Visual Progress Reports</h4>
+                        <p>Easy-to-understand charts and graphs that show skill development over time, making progress tangible and motivating.</p>
+                    </div>
+                </div>
+                <div class="feature-row">
+                    <div class="feature-icon-small">🎉</div>
+                    <div class="feature-content">
+                        <h4>Milestone Celebrations</h4>
+                        <p>Formal recognition events and ceremonies to celebrate major achievements and skill completions with family and employers.</p>
+                    </div>
+                </div>
+                <div class="feature-row">
+                    <div class="feature-icon-small">🔄</div>
+                    <div class="feature-content">
+                        <h4>Adaptive Learning Plans</h4>
+                        <p>Plans that adjust based on progress data, ensuring participants are always challenged appropriately without being overwhelmed.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Sample Progress Milestones</h3>
+                <div class="milestones-grid">
+                    <div class="milestone-card">
+                        <div class="milestone-number">2</div>
+                        <div class="milestone-label">Weeks: Initial Assessment Complete</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-number">4</div>
+                        <div class="milestone-label">Weeks: First Skills Badge Earned</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-number">6</div>
+                        <div class="milestone-label">Weeks: Workplace Visit Completed</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-number">8</div>
+                        <div class="milestone-label">Weeks: Mid-Program Review</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-number">10</div>
+                        <div class="milestone-label">Weeks: Job Shadow Experience</div>
+                    </div>
+                    <div class="milestone-card">
+                        <div class="milestone-number">12</div>
+                        <div class="milestone-label">Weeks: Program Graduation</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>For Participants</h3>
+                    <ul class="benefits-list">
+                        <li>Clear visibility of their own growth and achievements</li>
+                        <li>Increased motivation through milestone celebrations</li>
+                        <li>Better self-awareness of strengths and areas for improvement</li>
+                        <li>Concrete evidence of skills for job applications</li>
+                        <li>Regular feedback and support for continuous improvement</li>
+                        <li>Confidence building through documented progress</li>
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <h3>For Employers</h3>
+                    <ul class="benefits-list">
+                        <li>Detailed documentation of participant capabilities</li>
+                        <li>Evidence-based hiring decisions</li>
+                        <li>Clear understanding of support needs and accommodations</li>
+                        <li>Progress reports that inform onboarding strategies</li>
+                        <li>Reduced risk through comprehensive skill verification</li>
+                        <li>Data to support inclusive hiring initiatives</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Progress Tracking Success Story</h3>
+                <p>"When Michael started the program, he struggled with confidence and wasn't sure he could succeed in a workplace. The progress tracking system helped him see his improvements week by week. By graduation, he had earned 12 skill badges and could clearly articulate his abilities to employers. The visual progress reports were crucial in helping him land his first job – his supervisor said they'd never seen such comprehensive documentation of a new hire's capabilities." - <em>Job Journey Career Counselor</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Support Data-Driven Development?</h2>
+            <p>Partner with Job Journey to access comprehensive progress tracking that benefits both participants and employers through transparent, measurable skill development.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn-primary">Become a Sponsor</a>
+                <a href="index.html#features" class="btn-secondary">View All Programs</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

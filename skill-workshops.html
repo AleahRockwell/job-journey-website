@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skill-Building Workshops - Job Journey | CanAssist UVic</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+        
+        /* Header & Navigation */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 61, 120, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #003d78;
+            text-decoration: none;
+        }
+        
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        .back-button {
+            background: #003d78;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .back-button:hover {
+            background: #daa352;
+            transform: translateY(-2px);
+            color: white;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #003d78 0%, #daa352 100%);
+            color: white;
+            padding: 120px 2rem 80px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .hero-icon {
+            width: 100px;
+            height: 100px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto 2rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 80px 2rem;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #003d78;
+            text-align: center;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+        
+        .content-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            border-left: 4px solid #003d78;
+        }
+        
+        .content-card h3 {
+            font-size: 1.5rem;
+            color: #003d78;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .content-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .process-steps {
+            background: #f8f9ff;
+        }
+        
+        .workshops-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .workshop-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid #daa352;
+        }
+        
+        .workshop-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #003d78;
+            font-weight: 600;
+        }
+        
+        .workshop-card p {
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        .benefits-list {
+            list-style: none;
+            margin: 2rem 0;
+        }
+        
+        .benefits-list li {
+            padding: 0.75rem 0;
+            position: relative;
+            padding-left: 30px;
+            color: #666;
+        }
+        
+        .benefits-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #003d78;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(0, 61, 120, 0.05), rgba(218, 163, 82, 0.05));
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 4px solid #daa352;
+            margin: 2rem 0;
+        }
+        
+        .highlight-box h3 {
+            color: #003d78;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .cta-section {
+            background: #003d78;
+            color: white;
+            padding: 60px 2rem;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #daa352;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: white;
+            color: #003d78;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+            color: white;
+        }
+        
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .section {
+                padding: 60px 1rem;
+            }
+            
+            .nav-container {
+                padding: 1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <img src="canassist-logo.png" alt="CanAssist Logo" />
+                </div>
+                <span>Job Journey</span>
+            </a>
+            <a href="index.html" class="back-button">← Back to Main</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-icon">🛠️</div>
+        <h1>Skill-Building Workshops</h1>
+        <p class="subtitle">Interactive, hands-on sessions that build essential workplace skills and job-specific competencies tailored to your industry needs.</p>
+    </section>
+
+    <!-- Overview Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Building Foundation Skills for Success</h2>
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>Comprehensive Skill Development</h3>
+                    <p>Our skill-building workshops cover everything from fundamental workplace basics to industry-specific competencies. Each workshop is interactive, practical, and designed to build confidence through hands-on learning.</p>
+                    <p>We use real workplace scenarios, role-playing, and practical exercises to ensure participants can apply what they learn immediately in their work environment.</p>
+                </div>
+                <div class="content-card">
+                    <h3>Tailored to Your Industry</h3>
+                    <p>We work closely with sponsor organizations to understand their specific needs and customize workshop content accordingly. This ensures participants develop skills that are directly relevant to their future roles.</p>
+                    <p>Whether it's customer service, technical skills, or office procedures, our workshops prepare participants for the exact requirements of their placement.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Workshops Section -->
+    <section class="section process-steps">
+        <div class="container">
+            <h2>Our Workshop Categories</h2>
+            <div class="workshops-grid">
+                <div class="workshop-card">
+                    <h4>Workplace Fundamentals</h4>
+                    <p>Professional communication, time management, workplace etiquette, teamwork, problem-solving, and understanding workplace hierarchy and expectations.</p>
+                </div>
+                <div class="workshop-card">
+                    <h4>Communication Skills</h4>
+                    <p>Verbal and written communication, active listening, conflict resolution, presenting ideas, phone etiquette, and email communication best practices.</p>
+                </div>
+                <div class="workshop-card">
+                    <h4>Customer Service Excellence</h4>
+                    <p>Customer interaction techniques, handling complaints, product knowledge presentation, service recovery, and building customer relationships.</p>
+                </div>
+                <div class="workshop-card">
+                    <h4>Technology & Digital Literacy</h4>
+                    <p>Computer basics, software applications, point-of-sale systems, digital communication tools, and industry-specific technology training.</p>
+                </div>
+                <div class="workshop-card">
+                    <h4>Safety & Compliance</h4>
+                    <p>Workplace safety protocols, health and safety regulations, emergency procedures, and industry-specific compliance requirements.</p>
+                </div>
+                <div class="workshop-card">
+                    <h4>Professional Development</h4>
+                    <p>Goal setting, career planning, interview skills, resume building, networking, and continuing education opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="section">
+        <div class="container">
+            <h2>Workshop Benefits & Outcomes</h2>
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>For Participants</h3>
+                    <ul class="benefits-list">
+                        <li>Practical skills they can use immediately</li>
+                        <li>Increased confidence in workplace situations</li>
+                        <li>Better understanding of employer expectations</li>
+                        <li>Hands-on practice in a supportive environment</li>
+                        <li>Certification or recognition for completed workshops</li>
+                        <li>Peer learning and networking opportunities</li>
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <h3>For Employers</h3>
+                    <ul class="benefits-list">
+                        <li>Participants arrive with relevant, job-ready skills</li>
+                        <li>Reduced training time and onboarding costs</li>
+                        <li>Industry-specific competencies already developed</li>
+                        <li>Consistent skill standards across participants</li>
+                        <li>Better prepared employees from day one</li>
+                        <li>Customized training aligned with company needs</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="highlight-box">
+                <h3>Workshop Success Story</h3>
+                <p>"Marcus completed our customer service workshop series before starting at our retail location. He arrived on his first day already knowing how to handle difficult customers, process returns, and use our point-of-sale system. His supervisor said he was the most prepared new hire they'd ever worked with." - <em>Regional Manager, Partner Retail Chain</em></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Invest in Skill Development?</h2>
+            <p>Partner with Job Journey to provide participants with industry-relevant skills while preparing them specifically for success in your organization.</p>
+            <div class="cta-buttons">
+                <a href="index.html#contact" class="btn-primary">Become a Sponsor</a>
+                <a href="index.html#features" class="btn-secondary">View All Programs</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
