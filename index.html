@@ -353,6 +353,7 @@
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
         
         .feature-card::before {
@@ -387,6 +388,21 @@
             color: white;
             font-size: 2rem;
             margin: 0 auto 1.5rem;
+        }
+        
+        .learn-more {
+            margin-top: 1rem;
+            color: #003d78;
+            font-weight: 600;
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+        
+        .feature-card:hover .learn-more {
+            opacity: 1;
+            transform: translateY(0);
         }
         
         .feature-card h3 {
@@ -860,35 +876,41 @@
         <div class="container">
             <h2>How We Make It Work</h2>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card" onclick="window.location.href='individualized-planning.html'">
                     <div class="feature-icon">🎯</div>
                     <h3>Individualized Career Planning</h3>
                     <p>Each participant receives personalized career guidance aligned with their unique strengths, interests, and career goals.</p>
+                    <div class="learn-more">Learn More →</div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" onclick="window.location.href='skill-workshops.html'">
                     <div class="feature-icon">🛠️</div>
                     <h3>Skill-Building Workshops</h3>
                     <p>Interactive sessions covering workplace essentials, communication skills, and job-specific competencies tailored to your industry.</p>
+                    <div class="learn-more">Learn More →</div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" onclick="window.location.href='real-world-experience.html'">
                     <div class="feature-icon">👥</div>
                     <h3>Real-World Experience</h3>
                     <p>Job shadowing opportunities and hands-on experience with supportive employer partners in authentic work environments.</p>
+                    <div class="learn-more">Learn More →</div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" onclick="window.location.href='ongoing-mentorship.html'">
                     <div class="feature-icon">🤝</div>
                     <h3>Ongoing Mentorship</h3>
                     <p>Continuous 1:1 support and wraparound services throughout the program and during workplace transition.</p>
+                    <div class="learn-more">Learn More →</div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" onclick="window.location.href='workplace-integration.html'">
                     <div class="feature-icon">🎓</div>
                     <h3>Workplace Integration</h3>
                     <p>Specialized coaching to help participants adapt to workplace culture and build professional relationships with colleagues.</p>
+                    <div class="learn-more">Learn More →</div>
                 </div>
-                <div class="feature-card">
+                <div class="feature-card" onclick="window.location.href='progress-tracking.html'">
                     <div class="feature-icon">📈</div>
                     <h3>Progress Tracking</h3>
                     <p>Regular assessments and milestone celebrations to ensure participants are building confidence and achieving their goals.</p>
+                    <div class="learn-more">Learn More →</div>
                 </div>
             </div>
         </div>
