@@ -28,7 +28,7 @@
             right: 0;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(102, 126, 234, 0.1);
+            border-bottom: 1px solid rgba(0, 61, 120, 0.1);
             z-index: 1000;
             transition: all 0.3s ease;
         }
@@ -52,21 +52,24 @@
             align-items: center;
             font-size: 1.5rem;
             font-weight: 700;
-            color: #667eea;
+            color: #003d78;
             text-decoration: none;
         }
         
         .logo-icon {
             width: 40px;
             height: 40px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            border-radius: 50%;
+            margin-right: 0.75rem;
+            flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            margin-right: 0.5rem;
-            font-size: 1.2rem;
+        }
+        
+        .logo-icon img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
         }
         
         .nav-menu {
@@ -84,7 +87,7 @@
         }
         
         .nav-menu a:hover {
-            color: #667eea;
+            color: #003d78;
         }
         
         .nav-menu a::after {
@@ -94,7 +97,7 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: #667eea;
+            background: #003d78;
             transition: width 0.3s ease;
         }
         
@@ -103,19 +106,19 @@
         }
         
         .cta-nav {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #003d78, #daa352);
             color: white !important;
             padding: 0.75rem 1.5rem;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 61, 120, 0.3);
         }
         
         .cta-nav:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 61, 120, 0.4);
             color: white !important;
         }
         
@@ -130,7 +133,7 @@
         
         /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #003d78 0%, #daa352 100%);
             color: white;
             padding: 120px 2rem 80px;
             text-align: center;
@@ -219,14 +222,14 @@
         
         .btn-primary {
             background: white;
-            color: #667eea;
+            color: #003d78;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
         .btn-primary:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(0,0,0,0.15);
-            color: #667eea;
+            color: #003d78;
         }
         
         .btn-secondary {
@@ -268,7 +271,7 @@
             transform: translateX(-50%);
             width: 80px;
             height: 4px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #003d78, #daa352);
             border-radius: 2px;
         }
         
@@ -288,7 +291,7 @@
         .about-text h3 {
             font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: #667eea;
+            color: #003d78;
             font-weight: 600;
         }
         
@@ -321,7 +324,7 @@
         .stat-number {
             font-size: 3rem;
             font-weight: 700;
-            color: #667eea;
+            color: #003d78;
             display: block;
             margin-bottom: 0.5rem;
         }
@@ -346,7 +349,7 @@
             border-radius: 20px;
             text-align: center;
             box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            border: 1px solid rgba(102, 126, 234, 0.1);
+            border: 1px solid rgba(0, 61, 120, 0.1);
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
@@ -359,14 +362,14 @@
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #003d78, #daa352);
             transform: scaleX(0);
             transition: transform 0.3s ease;
         }
         
         .feature-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 61, 120, 0.15);
         }
         
         .feature-card:hover::before {
@@ -376,7 +379,7 @@
         .feature-icon {
             width: 80px;
             height: 80px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #003d78, #daa352);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -400,7 +403,7 @@
         
         /* Sponsorship Section */
         .sponsorship {
-            background: linear-gradient(135deg, rgba(102, 126, 234, 0.05), rgba(118, 75, 162, 0.05));
+            background: linear-gradient(135deg, rgba(0, 61, 120, 0.05), rgba(218, 163, 82, 0.05));
         }
         
         .sponsorship-tiers {
@@ -422,12 +425,12 @@
         }
         
         .tier-card:hover {
-            border-color: #667eea;
+            border-color: #003d78;
             transform: translateY(-10px);
         }
         
         .tier-card.featured {
-            border-color: #667eea;
+            border-color: #003d78;
             transform: scale(1.05);
             position: relative;
         }
@@ -438,7 +441,7 @@
             top: -12px;
             left: 50%;
             transform: translateX(-50%);
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #003d78, #daa352);
             color: white;
             padding: 0.5rem 1.5rem;
             border-radius: 20px;
@@ -449,7 +452,7 @@
         .tier-price {
             font-size: 3rem;
             font-weight: 700;
-            color: #667eea;
+            color: #003d78;
             margin-bottom: 0.5rem;
         }
         
@@ -478,13 +481,13 @@
             content: '✓';
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #003d78;
             font-weight: bold;
             font-size: 1.2rem;
         }
         
         .tier-cta {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #003d78, #daa352);
             color: white;
             padding: 1rem 2rem;
             border-radius: 50px;
@@ -496,7 +499,7 @@
         
         .tier-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 61, 120, 0.3);
             color: white;
         }
         
@@ -573,7 +576,7 @@
         .contact-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #003d78, #daa352);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -616,11 +619,11 @@
         .form-group textarea:focus,
         .form-group select:focus {
             outline: none;
-            border-color: #667eea;
+            border-color: #003d78;
         }
         
         .form-submit {
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #003d78, #daa352);
             color: white;
             padding: 1rem 2rem;
             border: none;
@@ -634,7 +637,7 @@
         
         .form-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 6px 20px rgba(0, 61, 120, 0.3);
         }
         
         /* Footer */
@@ -683,14 +686,14 @@
             right: 2rem;
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #667eea, #764ba2);
+            background: linear-gradient(135deg, #003d78, #daa352);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            box-shadow: 0 4px 15px rgba(0, 61, 120, 0.3);
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
@@ -704,7 +707,7 @@
         
         .scroll-top:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+            box-shadow: 0 6px 20px rgba(0, 61, 120, 0.4);
         }
         
         /* Mobile Responsive */
@@ -781,8 +784,10 @@
     <header class="header" id="header">
         <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-icon">🌟</div>
-                Job Journey
+                <div class="logo-icon">
+                    <img src="canassist-logo.png" alt="CanAssist Logo" />
+                </div>
+                <span>Job Journey</span>
             </a>
             <nav>
                 <ul class="nav-menu" id="nav-menu">
@@ -972,7 +977,7 @@
             <h2>Ready to Make a Difference?</h2>
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3 style="margin-bottom: 2rem; color: #667eea; font-size: 1.5rem;">Get In Touch</h3>
+                    <h3 style="margin-bottom: 2rem; color: #003d78; font-size: 1.5rem;">Get In Touch</h3>
                     <div class="contact-item">
                         <div class="contact-icon">📧</div>
                         <div>
@@ -1004,7 +1009,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <h3 style="margin-bottom: 1.5rem; color: #667eea; font-size: 1.5rem;">Start Your Partnership</h3>
+                    <h3 style="margin-bottom: 1.5rem; color: #003d78; font-size: 1.5rem;">Start Your Partnership</h3>5rem; color: #667eea; font-size: 1.5rem;">Start Your Partnership</h3>
                     <form id="contact-form">
                         <div class="form-group">
                             <label for="name">Full Name *</label>
@@ -1186,4 +1191,3 @@
         document.body.style.opacity = '0';
         document.body.style.transition = 'opacity 0.5s ease';
     </script>
-                
